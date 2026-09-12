@@ -1,5 +1,7 @@
 # Welcome to your Lovable project
 
+[![CI](https://github.com/Hrishabhshah006/Portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Hrishabhshah006/Portfolio/actions/workflows/ci.yml)
+
 ## Project info
 
 **URL**: https://lovable.dev/projects/fea6ebaf-9fff-4f11-8721-d1289a3ff4b2

@@ -1,0 +1,41 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: portfolio:latest
+    container_name: portfolio-frontend
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+
+  # Future backend service — uncomment when you add an API.
+  # Matches the commented /api/ proxy block in nginx.conf.
+  # backend:
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile
+  #   container_name: portfolio-backend
+  #   environment:
+  #     - NODE_ENV=production
+  #     - DATABASE_URL=postgres://portfolio:portfolio@db:5432/portfolio
+  #   expose:
+  #     - "4000"
+  #   depends_on:
+  #     - db
+  #   restart: unless-stopped
+
+  # Future database service.
+  # db:
+  #   image: postgres:16-alpine
+  #   container_name: portfolio-db
+  #   environment:
+  #     - POSTGRES_USER=portfolio
+  #     - POSTGRES_PASSWORD=portfolio
+  #     - POSTGRES_DB=portfolio
+  #   volumes:
+  #     - db-data:/var/lib/postgresql/data
+  #   restart: unless-stopped
+
+# volumes:
+#   db-data:
