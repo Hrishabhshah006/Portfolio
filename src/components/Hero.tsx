@@ -56,6 +56,7 @@ export function Hero() {
               href="https://github.com/hrishabhshah006"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub"
               className="text-muted-foreground hover:text-accent transition-colors p-2"
             >
               <Github className="h-6 w-6" />
@@ -64,12 +65,14 @@ export function Hero() {
               href="https://linkedin.com/in/hrishabhshah"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
               className="text-muted-foreground hover:text-accent transition-colors p-2"
             >
               <Linkedin className="h-6 w-6" />
             </a>
             <a
               href="mailto:hrishabhshah006@gmail.com"
+              aria-label="Email"
               className="text-muted-foreground hover:text-accent transition-colors p-2"
             >
               <Mail className="h-6 w-6" />
