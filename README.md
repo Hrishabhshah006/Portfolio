@@ -66,6 +66,52 @@ This project is built with:
 
 Simply open [Lovable](https://lovable.dev/projects/fea6ebaf-9fff-4f11-8721-d1289a3ff4b2) and click on Share -> Publish.
 
+## Running on Kubernetes (local `kind` cluster)
+
+The `k8s/` folder contains manifests (Deployment, Service, Ingress, HPA) to run the
+containerized app on Kubernetes. You can try it locally with a free
+[kind](https://kind.sigs.k8s.io/) cluster — no cloud account required.
+
+**Prerequisites:** [Docker](https://docs.docker.com/get-docker/),
+[kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation), and
+[kubectl](https://kubernetes.io/docs/tasks/tools/).
+
+```sh
+# 1. Create a local cluster
+kind create cluster --name portfolio
+
+# 2. Install the NGINX ingress controller (needed for the Ingress)
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+kubectl wait --namespace ingress-nginx \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/component=controller \
+  --timeout=90s
+
+# 3. Deploy the app (applies everything via kustomization.yaml)
+kubectl apply -k k8s/
+
+# 4. Check that it is running
+kubectl get all -n portfolio
+kubectl get ingress -n portfolio
+```
+
+Map the ingress host to localhost, then open the site:
+
+```sh
+echo "127.0.0.1 portfolio.local" | sudo tee -a /etc/hosts
+# visit http://portfolio.local
+```
+
+**Tear down when done:**
+
+```sh
+kind delete cluster --name portfolio
+```
+
+> Note: the image `ghcr.io/hrishabhshah006/portfolio:latest` must be public for the
+> cluster to pull it (GitHub → Packages → portfolio → make public), or configure an
+> image pull secret.
+
 ## Can I connect a custom domain to my Lovable project?
 
 Yes, you can!
