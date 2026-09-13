@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # ---- Build stage ----
-FROM node:20-alpine AS build
+FROM node:22-alpine AS build
 WORKDIR /app
 
 # Install dependencies first to leverage Docker layer caching
@@ -13,7 +13,10 @@ COPY . .
 RUN npm run build
 
 # ---- Serve stage ----
-FROM nginx:alpine AS serve
+FROM nginx:1.27-alpine AS serve
+
+# Patch OS packages to their latest fixed versions to reduce known CVEs
+RUN apk update && apk upgrade --no-cache
 
 # SPA-aware nginx config (fallback to index.html)
 COPY nginx.conf /etc/nginx/conf.d/default.conf

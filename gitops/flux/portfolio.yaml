@@ -1,0 +1,25 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: portfolio
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: https://github.com/Hrishabhshah006/Portfolio.git
+  ref:
+    branch: main
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: portfolio
+  namespace: flux-system
+spec:
+  interval: 5m
+  sourceRef:
+    kind: GitRepository
+    name: portfolio
+  path: ./k8s
+  prune: true          # delete resources removed from Git
+  wait: true
+  timeout: 2m
