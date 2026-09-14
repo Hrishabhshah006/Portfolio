@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart } from "lucide-react"
+import { Github, Linkedin, Mail } from "lucide-react"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -13,8 +13,8 @@ export function Footer() {
               Hrishabh Shah
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Aspiring DevOps Engineer passionate about automation, cloud technologies, 
-              and building scalable solutions.
+              Software Engineer at Siemens passionate about backend development, 
+              automation, and building scalable cloud-native solutions.
             </p>
           </div>
 
@@ -80,6 +80,7 @@ export function Footer() {
               © {currentYear} Hrishabh Shah. All rights reserved.
             </p>
             <p className="text-muted-foreground text-sm flex items-center">
+              Built with React &amp; Tailwind, shipped via GitOps.
             </p>
           </div>
         </div>

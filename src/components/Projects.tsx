@@ -5,13 +5,13 @@ import { Github, ExternalLink, Code, Database, Server } from "lucide-react"
 
 const projects = [
   {
-    title: "Voting & Result Application",
-    description: "A comprehensive voting system with real-time results, implemented with modern DevOps practices including Kubernetes orchestration and GitOps workflows.",
-    technologies: ["Kubernetes", "FluxCD", "CI/CD", "GitOps", "Docker", "Microservices"],
+    title: "Cloud-Native Portfolio",
+    description: "This very portfolio, shipped like production software: containerized with Docker, packaged as a Helm chart, deployed to Kubernetes, and continuously delivered through GitOps and CI/CD.",
+    technologies: ["Docker", "Kubernetes", "Helm", "ArgoCD", "FluxCD", "GitHub Actions"],
     category: "DevOps",
     icon: Server,
-    highlights: ["Kubernetes Deployment", "GitOps Workflow", "Automated CI/CD"],
-    github: "https://github.com/hrishabhshah006",
+    highlights: ["GitOps with ArgoCD & Flux", "Helm-packaged K8s Deployment", "CI/CD to GHCR"],
+    github: "https://github.com/Hrishabhshah006/Portfolio",
     demo: null
   },
   {
@@ -21,7 +21,7 @@ const projects = [
     category: "Backend",
     icon: Database,
     highlights: ["User Authentication", "CRUD Operations", "Security Implementation"],
-    github: "https://github.com/hrishabhshah006",
+    github: "https://github.com/Hrishabhshah006/Library-Management-Backend-using-Spring-Boot",
     demo: null
   },
   {
@@ -31,7 +31,7 @@ const projects = [
     category: "Full Stack",
     icon: Code,
     highlights: ["Real-time Updates", "Responsive Design", "Comprehensive Reports"],
-    github: "https://github.com/hrishabhshah006",
+    github: "https://github.com/Hrishabhshah006/attendease",
     demo: null
   }
 ]
@@ -160,7 +160,7 @@ export function Projects() {
             asChild
           >
             <a 
-              href="https://github.com/hrishabhshah006" 
+              href="https://github.com/Hrishabhshah006" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center"

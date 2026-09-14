@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/ThemeToggle"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Download } from "lucide-react"
 
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
+  { name: "DevOps", href: "#built-with" },
   { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contact" },
 ]
@@ -64,6 +65,16 @@ export function Navigation() {
           </div>
 
           <div className="flex items-center space-x-2">
+            <Button
+              size="sm"
+              className="hidden md:inline-flex bg-accent hover:bg-accent-muted text-accent-foreground"
+              asChild
+            >
+              <a href="/resume.pdf" download="Hrishabh-Shah-Resume.pdf">
+                <Download className="mr-2 h-4 w-4" />
+                Résumé
+              </a>
+            </Button>
             <ThemeToggle />
             {/* Mobile menu button */}
             <div className="md:hidden">
@@ -91,6 +102,14 @@ export function Navigation() {
                   {item.name}
                 </button>
               ))}
+              <a
+                href="/resume.pdf"
+                download="Hrishabh-Shah-Resume.pdf"
+                className="flex items-center px-3 py-2 text-base font-medium text-accent hover:text-accent-muted transition-colors"
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Download Résumé
+              </a>
             </div>
           </div>
         )}

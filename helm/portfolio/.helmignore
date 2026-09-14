@@ -1,0 +1,4 @@
+.git
+*.tgz
+.DS_Store
+*.md
