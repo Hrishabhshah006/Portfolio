@@ -162,11 +162,41 @@ and keep the cluster continuously in sync with the `k8s/` folder.
 Both point at the same `k8s/` manifests, with auto-sync, pruning, and self-healing
 (the cluster reverts any manual drift back to what is committed in Git).
 
+## Helm Chart
+
+The [`helm/portfolio`](helm/portfolio) chart packages the same Kubernetes resources as a
+parameterized, reusable unit — configurable per environment via `values.yaml` or
+`--set` flags. It uses conditional templates (autoscaling and ingress can be toggled),
+shared naming/label helpers, and standard `app.kubernetes.io/*` labels.
+
+```sh
+# Preview the rendered manifests
+helm template portfolio helm/portfolio
+
+# Install to a cluster
+helm install portfolio helm/portfolio --namespace portfolio --create-namespace
+
+# Override values per environment
+helm install portfolio helm/portfolio \
+  --set image.tag=v1.2.0 \
+  --set replicaCount=3 \
+  --set ingress.host=hrishabh.dev
+
+# Upgrade / uninstall
+helm upgrade portfolio helm/portfolio
+helm uninstall portfolio -n portfolio
+```
+
+Key configurable values (see [`values.yaml`](helm/portfolio/values.yaml)): image
+repository/tag, replica count, resource requests/limits, ingress host/class, and
+autoscaling thresholds.
+
 ## Project Structure
 
 ```
 ├── src/                 # React application (components, pages, hooks, lib)
 ├── k8s/                 # Kubernetes manifests (Deployment, Service, Ingress, HPA)
+├── helm/portfolio/      # Parameterized Helm chart
 ├── gitops/              # ArgoCD and FluxCD sync manifests
 ├── .github/workflows/   # CI/CD pipeline
 ├── Dockerfile           # Multi-stage build (Node → NGINX)
