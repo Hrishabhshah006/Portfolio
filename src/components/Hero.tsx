@@ -31,8 +31,8 @@ export function Hero() {
           </h1>
           
           <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-            Aspiring DevOps Engineer with a strong foundation in backend development, 
-            automation, and cloud-native tools.
+            Software Engineer @ Siemens — building scalable backend systems with 
+            cloud-native and DevOps tooling like Kubernetes, GitOps, and CI/CD.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">

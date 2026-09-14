@@ -31,8 +31,8 @@ export function About() {
             About <span className="bg-hero-gradient bg-clip-text text-transparent">Me</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Passionate about bridging development and operations through automation, 
-            cloud technologies, and innovative solutions.
+            Passionate about building reliable backend systems and streamlining software 
+            delivery through automation, cloud-native technologies, and DevOps practices.
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export function About() {
           <div>
             <h3 className="text-2xl font-semibold mb-6 text-foreground">My Journey</h3>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              I'm a dedicated DevOps enthusiast with a strong foundation in computer science 
+              I'm a Software Engineer with a strong foundation in computer science 
               and engineering. My journey began with a curiosity for backend development and 
               has evolved into a passion for automation, cloud-native technologies, and 
               streamlining software delivery processes.
@@ -51,8 +51,8 @@ export function About() {
               CI/CD pipelines, and infrastructure as code.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Currently, I'm working as an Apprentice Technical at Siemens STSPL, where I 
-              continue to grow my expertise in enterprise-level systems and contribute to 
+              Currently, I'm working as a Software Engineer at Siemens STSPL, where I 
+              build enterprise-level systems and contribute to 
               innovative technical solutions.
             </p>
           </div>
