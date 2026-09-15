@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
+    "build:resume": "node scripts/generate-resume-pdf.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
